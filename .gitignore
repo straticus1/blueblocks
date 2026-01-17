@@ -123,3 +123,4 @@ ssl/
 # Keep example configs
 !config.json.example
 !.env.example
+deploy/secrets/
