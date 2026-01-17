@@ -40,7 +40,7 @@ patches:
         path: /spec/replicas
         value: 2
 
-  # Testnet resources
+  # Testnet resources (moderate)
   - target:
       kind: Deployment
       name: blueblocks-node
@@ -49,11 +49,11 @@ patches:
         path: /spec/template/spec/containers/0/resources
         value:
           requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
             cpu: 500m
             memory: 1Gi
-          limits:
-            cpu: 2
-            memory: 4Gi
 
   - target:
       kind: StatefulSet
@@ -63,14 +63,28 @@ patches:
         path: /spec/template/spec/containers/0/resources
         value:
           requests:
-            cpu: 1
-            memory: 2Gi
+            cpu: 100m
+            memory: 256Mi
           limits:
-            cpu: 4
-            memory: 8Gi
+            cpu: 500m
+            memory: 1Gi
       - op: replace
         path: /spec/volumeClaimTemplates/0/spec/resources/requests/storage
-        value: 50Gi
+        value: 10Gi
+
+  - target:
+      kind: Deployment
+      name: blueblocks-miner
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            cpu: 200m
+            memory: 512Mi
+          limits:
+            cpu: 1
+            memory: 2Gi
 
   # Update Ingress hosts
   - target:
