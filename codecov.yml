@@ -1,0 +1,54 @@
+# BlueBlocks Codecov Configuration
+# =================================
+
+codecov:
+  require_ci_to_pass: yes
+  notify:
+    wait_for_ci: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "60...90"
+
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 2%
+        if_ci_failed: error
+    patch:
+      default:
+        target: auto
+        threshold: 5%
+
+parsers:
+  go:
+    partials_as_hits: yes
+
+comment:
+  layout: "reach,diff,flags,files"
+  behavior: default
+  require_changes: no
+  require_base: no
+  require_head: yes
+
+flags:
+  unittests:
+    paths:
+      - lib/
+      - cmd/
+    carryforward: true
+
+  integration:
+    paths:
+      - tests/integration/
+    carryforward: false
+
+ignore:
+  - "**/*_test.go"
+  - "**/testdata/**"
+  - "**/examples/**"
+  - "**/mocks/**"
+  - "**/vendor/**"
+  - "explorer/**"
