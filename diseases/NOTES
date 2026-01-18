@@ -1,0 +1,62 @@
+# Disease.Zone - BlueBlocks Healthcare Intelligence Layer
+
+## Status: LIVE
+- https://disease.zone - Countdown to Feb 2, 2026
+- https://api.disease.zone - API coming soon
+- https://portal.disease.zone - Patient portal
+- https://doctors.disease.zone - Provider portal
+
+## BlueBlocks Ecosystem Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    BLUEBLOCKS ECOSYSTEM                     │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌─────────────────┐         ┌─────────────────┐           │
+│  │   BlueBlocks    │         │  Disease.Zone   │           │
+│  │   (Layer 1)     │◄───────►│  (Intelligence) │           │
+│  │                 │         │                 │           │
+│  │ • Blockchain    │         │ • 138+ APIs     │           │
+│  │ • Smart Contr.  │         │ • Outbreak Det. │           │
+│  │ • Health IDs    │         │ • AI Symptoms   │           │
+│  │ • BBT Tokens    │         │ • FHIR/Epic     │           │
+│  │ • Provider Reg. │         │ • STI Tracking  │           │
+│  └─────────────────┘         └─────────────────┘           │
+│           │                           │                     │
+│           └───────────┬───────────────┘                     │
+│                       │                                     │
+│              ┌────────▼────────┐                           │
+│              │    Keycloak     │                           │
+│              │    (SSO Auth)   │                           │
+│              └─────────────────┘                           │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Integration Points
+
+### disease.zone APIs → BlueBlocks
+- Global outbreak data → Blockchain audit logs
+- Patient symptom analysis → Medical record contracts
+- Provider verification → Provider registry contract
+- Health tokens → BBT token rewards
+
+### BlueBlocks → disease.zone
+- Wallet authentication
+- Medical record access
+- Provider credentials
+- Token-gated features
+
+## Launch Timeline
+- 2026-01-18: Countdown page live
+- 2026-02-02: Full platform launch
+- Q1 2026: Keycloak integration
+- Q1 2026: BlueBlocks SDK integration
+- Q2 2026: Doctor/Patient portals
+
+## Source Code
+- ~/development/disease.zone (v3.8.0)
+- 138+ REST API endpoints
+- HIPAA compliance framework
+- FHIR R4 + Epic EHR integration
